@@ -1,81 +1,101 @@
+/* Fundo com um degradê mais suave */
 body {
-    background: linear-gradient(to right, #87CEEB, #B0E0E6); /* Gradiente suave de azul claro */
-    color: #333;
-    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB, #ffffff); /* Azul claro para branco */
+    color: #222;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
 }
 
-/* Deixar os títulos mais destacados e com fontes elegantes */
+/* Melhorando os títulos */
 h1, h2, h3 {
-    color: #000; /* Preto */
-    font-family: 'Georgia', serif;
+    color: #004466;
+    font-family: 'Merriweather', serif;
+    text-align: center;
 }
 
-/* Estilo do cabeçalho */
+/* Hero Section */
 .hero {
     height: 300px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
+    flex-direction: column; /* Organiza os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center; /* Garante que o texto fique centralizado */
+    color: #005580;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     background: url('https://source.unsplash.com/1600x900/?beach,travel') no-repeat center center;
     background-size: cover;
     padding-bottom: 10px;
 }
 
-/* Título principal */
+.subtext {
+    font-size: 0.9rem; /* Deixa o texto menor */
+    font-weight: normal;
+    max-width: 60%;
+    text-align: center;
+    margin-top: 10px; /* Ajusta o espaçamento abaixo do título */
+    color: #4c8dad;
+    
+}
+
+/* Efeito de destaque no título principal */
 h1 {
-    margin-bottom: 5px; /* Menor espaço entre o título e o próximo conteúdo */
-    font-size: 2.5rem; /* Ajuste no tamanho da fonte para se adequar ao layout */
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
-/* Reduz o espaçamento entre o h1 e o h2 */
+/* Estilizando o subtítulo */
 h2 {
-    margin-top: 0;
-    margin-bottom: 10px; /* Definindo margem inferior para o h2 */
-    font-size: 1.75rem; /* Ajuste no tamanho da fonte */
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #005580;
 }
 
-/* Ajusta a margem do parágrafo dentro da div com a classe 'col-12' */
-.col-12.text-center.mb-4 p {
-    margin-top: 0; /* Remove o espaçamento extra no topo */
-    margin-bottom: 0; /* Remove o espaçamento extra no fundo */
+/* Parágrafos com melhor espaçamento */
+.col-12.text-center p {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
-/* Melhorar o espaçamento geral */
+/* Melhorando a estrutura dos pacotes */
 .container {
+    max-width: 1100px;
+    margin: auto;
     padding: 30px;
 }
 
-.row {
-    margin-top: 20px;
-}
-
-/* Estilo para os cartões de pacotes */
+/* Cartões mais modernos */
 .card {
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Efeito de elevação */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 .card img {
-    border-radius: 10px 10px 0 0;
+    border-radius: 12px 12px 0 0;
 }
 
-/* Botões */
+/* Botões aprimorados */
 .btn-primary {
-    background-color: #00BFFF;
-    border: none;
-    transition: background-color 0.3s ease;
+    background-color: #007acc;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
-    background-color: #1E90FF; /* Efeito de hover */
-    cursor: pointer;
+    background-color: #005999;
+    transform: scale(1.05);
 }

@@ -11,38 +11,40 @@
     <div class="card p-4 shadow-lg" style="width: 350px;">
         <h2 class="text-center mb-4">Login</h2>
         
-        <form id="loginForm">
+        <form id="loginForm" method="POST" action="/login">
             <div class="mb-3">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required>
+                <label for="usuario" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Digite seu nome" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail" required>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu e-mail" required>
             </div>
             <div class="mb-3">
                 <label for="senha" class="form-label">Senha</label>
-                <input type="password" class="form-control" id="senha" placeholder="Digite sua senha" required>
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
             </div>
             <button type="submit" class="btn btn-primary w-100">Entrar</button>
         </form>
-
-        <p class="text-center text-muted mt-3">Ainda não tem conta? <a href="#">Cadastre-se</a></p>
     </div>
 
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Evita o recarregamento da página
+    fetch('/sessao') // Verifica se já está autenticado
+        .then(res => res.json())
+        .then(data => {
+            if (data.autenticado) {
+                window.location.href = "/detalhes.html"; // Redireciona automaticamente se já logado
+            }
+        });
 
-            // Pegando os valores digitados
-            const nome = document.getElementById("nome").value;
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            const usuario = document.getElementById("usuario").value;
             const email = document.getElementById("email").value;
             const senha = document.getElementById("senha").value;
 
-            if (nome && email && senha) {
-                alert("Login realizado com sucesso!");
-                window.location.href = "ativpw.html"; // Redireciona para a página inicial
-            } else {
+            if (!usuario || !email || !senha) {
+                event.preventDefault(); // Bloqueia o envio se faltar algum campo
                 alert("Por favor, preencha todos os campos.");
             }
         });

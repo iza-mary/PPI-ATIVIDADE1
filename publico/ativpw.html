@@ -6,12 +6,25 @@
     <title>Pacotes de Viagem</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
+
+    <style>
+        .hero {
+            background: url('https://source.unsplash.com/1600x900/?travel') no-repeat center center;
+            background-size: cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+    </style>
 </head>
 <body class="pagina-inicial">
 
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Viagens</a>
+            <a class="navbar-brand" href="#">Altas Marés Boas Viagens</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -19,22 +32,24 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="ativpw.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+
                 </ul>
             </div>
         </div>
     </nav>
     
     <header class="hero">
-        <h1>Bem-vindo à Maré Alta Viagens!</h1>
+        <h1>Bem-vindo à Altas Marés Boas Viagens!</h1>
+        <h6 class="subtext">"Navegue pelos destinos mais incríveis com a Altas Marés Boas Viagens. Aqui, cada viagem é uma nova onda de descobertas e emoções. Seja para relaxar nas praias paradisíacas ou explorar as maravilhas do mundo, nossa missão é te levar até onde a maré te levar!"</h6>
     </header>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 text-center mb-4">
-                <p><em><h2>"Navegue pelos destinos mais incríveis com a Maré Alta Viagens. Aqui, cada viagem é uma nova onda de descobertas e emoções. Seja para relaxar nas praias paradisíacas ou explorar as maravilhas do mundo, nossa missão é te levar até onde a maré te levar!"</h2></em></p>
+    
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <h2>Sobre Nós</h2>
+                <p>A Altas Marés Boas Viagens nasceu da paixão por explorar novos destinos e proporcionar experiências inesquecíveis. Nosso objetivo é transformar cada viagem em uma jornada única, oferecendo pacotes personalizados e atendimento de excelência. Venha viajar com a gente e descubra o mundo de uma maneira especial!</p>
             </div>
         </div>
-    
-    <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
@@ -44,7 +59,6 @@
                         <p class="card-text">Data mais próxima disponível: 10/04/2025 </p>
                         <p class="card-text">Valor: R$ 3.899,00 </p>
                         <a href="detalhes.html?destino=Rio de Janeiro&data=10/04/2025&preco=3899&duracao=5&partida=São Paulo&lugares=10&hotel&cafe=Sim&almoco=Sim&jantar=Sim&passeios=Cristo Redentor,Pão de Açúcar,Praia de Copacabana" class="btn btn-primary">Ver Detalhes</a>
-
                     </div>
                 </div>
             </div>
