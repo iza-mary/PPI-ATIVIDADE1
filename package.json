@@ -1,0 +1,32 @@
+{
+  "name": "ppi-atividade1",
+  "version": "1.0.0",
+  "description": "atividade1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iza-mary/PPI-ATIVIDADE1.git"
+  },
+  "keywords": [
+    "express",
+    "secao",
+    "nodejs",
+    "servidor",
+    "web",
+    "http"
+  ],
+  "author": "Maria Rodrigues",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iza-mary/PPI-ATIVIDADE1/issues"
+  },
+  "homepage": "https://github.com/iza-mary/PPI-ATIVIDADE1#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
