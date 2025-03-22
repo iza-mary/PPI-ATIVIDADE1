@@ -99,3 +99,76 @@ h2 {
     background-color: #005999;
     transform: scale(1.05);
 }
+
+/* Estilização do formulário */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Fundo levemente translúcido */
+    backdrop-filter: blur(5px);
+}
+
+/* Títulos do formulário */
+.card h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #004466;
+}
+
+/* Estilizando os campos de entrada */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #007acc;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #005580;
+    box-shadow: 0 0 8px rgba(0, 91, 153, 0.5);
+}
+
+/* Botão do formulário */
+.btn-primary {
+    background-color: #007acc;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #005999;
+    transform: scale(1.05);
+}
+
+/* Estilizando os checkboxes */
+.form-check-input {
+    border: 2px solid #007acc;
+    transition: all 0.3s ease-in-out;
+}
+
+.form-check-input:checked {
+    background-color: #007acc;
+    border-color: #005580;
+}
+
+/* Espaçamento nos grupos de inputs */
+.mb-3 {
+    margin-bottom: 1.2rem;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+    }
+
+    .form-label {
+        font-size: 0.95rem;
+    }
+}

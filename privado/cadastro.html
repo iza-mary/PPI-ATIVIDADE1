@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Pacote de Viagem</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-5">
+        <div class="card p-4 shadow">
+            <h2 class="text-center mb-4">Cadastro de Pacote de Viagem</h2>
+            <form id="formPacote">
+                <div class="mb-3">
+                    <label for="destino" class="form-label">Destino:</label>
+                    <input type="text" class="form-control" id="destino" name="destino" required>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="dataSaida" class="form-label">Data de Saída:</label>
+                        <input type="date" class="form-control" id="dataSaida" name="dataSaida" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="duracao" class="form-label">Duração (dias):</label>
+                        <input type="number" class="form-control" id="duracao" name="duracao" min="1" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="localPartida" class="form-label">Local de Partida:</label>
+                    <input type="text" class="form-control" id="localPartida" name="localPartida" required>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="preco" class="form-label">Preço (R$):</label>
+                        <input type="number" class="form-control" id="preco" name="preco" step="0.01" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lugares" class="form-label">Quantidade de Lugares Disponíveis:</label>
+                        <input type="number" class="form-control" id="lugares" name="lugares" min="1" required>
+                    </div>
+                </div>
+
+                <fieldset class="mb-3">
+                    <legend>Incluso no Pacote:</legend>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="hotel" name="incluso" value="Hotel">
+                        <label class="form-check-label" for="hotel">Hotel</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="cafe" name="incluso" value="Café da Manhã">
+                        <label class="form-check-label" for="cafe">Café da Manhã</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="almoco" name="incluso" value="Almoço">
+                        <label class="form-check-label" for="almoco">Almoço</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="jantar" name="incluso" value="Jantar">
+                        <label class="form-check-label" for="jantar">Jantar</label>
+                    </div>
+                </fieldset>
+
+                <div class="mb-3">
+                    <label for="passeios" class="form-label">Passeios Turísticos:</label>
+                    <textarea class="form-control" id="passeios" name="passeios" rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Cadastrar Pacote</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
