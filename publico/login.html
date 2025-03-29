@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -29,25 +29,27 @@
     </div>
 
     <script>
-    fetch('/sessao') // Verifica se já está autenticado
+    // Verifica se o usuário já está autenticado ao acessar a página de login
+    fetch('/sessao')  
         .then(res => res.json())
         .then(data => {
             if (data.autenticado) {
-                window.location.href = "detalhes.html"; // Redireciona automaticamente se já logado
+                // Se já estiver autenticado, redireciona para a página de detalhes
+                window.location.href = "/privado/detalhes.html";  // Redireciona para detalhes.html
             }
         });
 
+    // Validação de formulário antes de enviar
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        const usuario = document.getElementById("usuario").value;
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
 
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            const usuario = document.getElementById("usuario").value;
-            const email = document.getElementById("email").value;
-            const senha = document.getElementById("senha").value;
-
-            if (!usuario || !email || !senha) {
-                event.preventDefault(); // Bloqueia o envio se faltar algum campo
-                alert("Por favor, preencha todos os campos.");
-            }
-        });
+        if (!usuario || !email || !senha) {
+            event.preventDefault(); // Bloqueia o envio se faltar algum campo
+            alert("Por favor, preencha todos os campos.");
+        }
+    });
     </script>
 
 </body>

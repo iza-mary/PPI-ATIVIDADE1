@@ -1,74 +1,73 @@
 import express from "express";
-import autenticar from "./segurança/autenticar.js";
 import session from "express-session";
+import path from "path";
+import autenticar from "./segurança/autenticar.js"; 
 
 const porta = 3000;
-const localhost = "0.0.0.0"; 
+const localhost = "0.0.0.0";
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); 
 
-app.use(session({
-    secret: "m1Nh4Ch4v353cR3t4",
+app.use(
+  session({
+    secret: "m1Nh4Ch4v3S3cR3t4", // chave secreta para a sessão
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 15
-    }
-}));
+      maxAge: 1000 * 60 * 15, // 15 minutos de sessão
+    },
+  })
+);
+
 
 app.get("/login", (requisicao, resposta) => {
-    resposta.redirect('/login.html');
+  resposta.sendFile(path.join(__dirname, "publico", "login.html")); 
 });
 
-app.get("/logout", (requisicao, resposta) => {
-    requisicao.session.destroy();
-    resposta.redirect('/login.html');
-});
-
-app.get("/sessao", (req, res) => {
-    res.json({ autenticado: req.session.autenticado || false });
-});
 
 app.post("/login", (requisicao, resposta) => {
     const usuario = requisicao.body.usuario;
     const email = requisicao.body.email;
     const senha = requisicao.body.senha;
 
-    if (usuario === "admin" && email === "admin@email.com" && senha === "admin123") {
+    if (usuario === "admin" && email === "admin@email.com" && senha === "admin321") {
         requisicao.session.autenticado = true;
-        console.log("Usuário autenticado:", requisicao.session); // Verifica a sessão
-        resposta.redirect('/detalhes.html');
+        resposta.redirect("/privado/detalhes.html");  
     } else {
-        console.log("Falha na autenticação:", requisicao.body); //  Verifica os dados recebidos
-        resposta.redirect('/login.html');
+        resposta.redirect("/login.html");
     }
 });
 
-app.use(express.static('./publico'));
 
-// Middleware de autenticação para as páginas protegidas
-app.use((requisicao, resposta, next) => {
-    if (!requisicao.session.autenticado) {
-        resposta.redirect('/login.html');
-    } else {
-        next();
-    }
+
+app.get("/logout", (requisicao, resposta) => {
+  requisicao.session.destroy();
+  resposta.redirect("/login"); 
 });
 
-// Direcionando as páginas protegidas para o diretório privado
-app.use("/privado", express.static("./privado"));
 
-// Para permitir o acesso às páginas privadas
-app.get("/privado/detalhes.html", (requisicao, resposta) => {
-    resposta.sendFile(__dirname + "/privado/detalhes.html");
+app.get("/sessao", (req, res) => {
+  res.json({ autenticado: req.session.autenticado || false });
 });
 
-app.get("/privado/cadastro.html", (requisicao, resposta) => {
-    resposta.sendFile(__dirname + "/privado/cadastro.html");
+
+app.use(express.static("./publico")); 
+
+app.use("/privado", autenticar); 
+app.use("/privado", express.static("./privado")); 
+
+// Rota para a página cadastro.html com autenticação
+app.get("/cadastro", autenticar, (requisicao, resposta) => {
+  resposta.sendFile(path.join(__dirname, "publico", "cadastro.html")); 
+});
+
+
+app.get("/testar-autenticacao", autenticar, (req, res) => {
+  res.send("Você está autenticado!");
 });
 
 app.listen(porta, localhost, () => {
-    console.log(`Servidor rodando em http://${localhost}:${porta}`);
+  console.log(`Servidor rodando em http://${localhost}:${porta}`);
 });
